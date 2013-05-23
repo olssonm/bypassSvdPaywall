@@ -1,12 +1,14 @@
 var bypassSvdPaywall = function(){
 	function init() {
-		var pattern = /svd_pw_\d/i;
-		for (var methods in window) {
-			var match = methods.match(pattern);
-			if(match) {
-				window[methods]();
-			}
-		}
+		jQuery(window).unbind();
+		jQuery("#page").css("height","auto");
+		jQuery(".svd_pw_alert_box").animate({
+			top: -500
+		}, 500, function() {
+			jQuery("#svd_pw_alert").hide();
+			jQuery("#svd_pw_curtain").hide();
+			jQuery("body").removeClass("svd_pw_freeze");
+		});
 	}
 	return {
 		init: init
