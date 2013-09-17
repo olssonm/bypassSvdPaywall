@@ -1,5 +1,6 @@
 var bypassSvdPaywall = function(){
 	function init() {
+		jQuery('<div></div>').appendTo('#article-content').load(document.URL + ' #article-content');
 		jQuery(window).unbind();
 		jQuery("#page").css("height","auto");
 		jQuery(".svd_pw_alert_box").animate({
